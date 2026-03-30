@@ -1,0 +1,18 @@
+{
+  "_checkout": null,
+  "_output_dir": "/home/vboxuser/Desktop",
+  "_repo_dir": "/home/vboxuser/.cookiecutters/cookiecutter-nanosystemslab",
+  "_template": "gh:nanosystemslab/cookiecutter-nanosystemslab",
+  "author": "Nanosystems Lab",
+  "copyright_year": "2026",
+  "development_status": "Development Status :: 4 - Beta",
+  "email": "nslab@hawaii.edu",
+  "friendly_name": "PyKeithley_DMM6500",
+  "github_user": "nanosystemslab",
+  "license": "GPL-3.0",
+  "package_name": "pykeithley_dmm6500",
+  "project_name": "pykeithley_dmm6500",
+  "project_version": "0.0.0",
+  "python_version_max": "4.0",
+  "python_version_min": "3.10"
+}

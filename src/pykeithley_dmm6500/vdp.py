@@ -2,6 +2,7 @@
 
 import math
 from typing import NamedTuple
+from typing import Optional
 
 
 class VdpResult(NamedTuple):
@@ -17,14 +18,14 @@ class VdpResult(NamedTuple):
     r_horizontal: float
     r_vertical: float
     sheet_resistance: float
-    resistivity: float | None
+    resistivity: Optional[float]
 
 
 def sheet_resistance(
     v_horizontal: float,
     v_vertical: float,
     current: float,
-    thickness_cm: float | None = None,
+    thickness_cm: Optional[float] = None,
 ) -> VdpResult:
     """Calculate sheet resistance from Van der Pauw measurements.
 
@@ -69,7 +70,7 @@ def sheet_resistance_from_configs(
     v3: float,
     v4: float,
     current: float,
-    thickness_cm: float | None = None,
+    thickness_cm: Optional[float] = None,
 ) -> VdpResult:
     """Calculate sheet resistance from all 4 Van der Pauw configurations.
 

@@ -2,10 +2,10 @@
 
 [![PyPI](https://img.shields.io/pypi/v/pykeithley_dmm6500.svg)][pypi status]
 [![Status](https://img.shields.io/pypi/status/pykeithley_dmm6500.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/pykeithley_dmm6500)][pypi status]
-[![License](https://img.shields.io/pypi/l/pykeithley_dmm6500)][license]
+[![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fnanosystemslab%2Fpykeithley_dmm6500%2Fmain%2Fpyproject.toml)][pypi status]
+[![License](https://img.shields.io/github/license/nanosystemslab/pykeithley_dmm6500)][license]
 
-[![Read the documentation at https://pykeithley_dmm6500.readthedocs.io/](https://img.shields.io/readthedocs/pykeithley_dmm6500/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Read the Docs](https://img.shields.io/readthedocs/pykeithley-dmm6500/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/nanosystemslab/pykeithley_dmm6500/workflows/Tests/badge.svg)][tests]
 [![Codecov](https://codecov.io/gh/nanosystemslab/pykeithley_dmm6500/branch/main/graph/badge.svg)][codecov]
 
@@ -13,7 +13,7 @@
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
 [pypi status]: https://pypi.org/project/pykeithley_dmm6500/
-[read the docs]: https://pykeithley_dmm6500.readthedocs.io/
+[read the docs]: https://pykeithley-dmm6500.readthedocs.io/
 [tests]: https://github.com/nanosystemslab/pykeithley_dmm6500/actions?workflow=Tests
 [codecov]: https://app.codecov.io/gh/nanosystemslab/pykeithley_dmm6500
 [pre-commit]: https://github.com/pre-commit/pre-commit
@@ -180,4 +180,4 @@ This project was generated from [@nanosystemslab]'s [Nanosystems Lab Python Cook
 
 [license]: https://github.com/nanosystemslab/pykeithley_dmm6500/blob/main/LICENSE
 [contributor guide]: https://github.com/nanosystemslab/pykeithley_dmm6500/blob/main/CONTRIBUTING.md
-[command-line reference]: https://pykeithley_dmm6500.readthedocs.io/en/latest/usage.html
+[command-line reference]: https://pykeithley-dmm6500.readthedocs.io/en/latest/usage.html

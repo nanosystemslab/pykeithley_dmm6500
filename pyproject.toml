@@ -7,7 +7,7 @@ license = "GPL-3.0"
 readme = "README.md"
 homepage = "https://github.com/nanosystemslab/pykeithley_dmm6500"
 repository = "https://github.com/nanosystemslab/pykeithley_dmm6500"
-documentation = "https://pykeithley_dmm6500.readthedocs.io"
+documentation = "https://pykeithley-dmm6500.readthedocs.io"
 classifiers = [
     "Development Status :: 4 - Beta",
 ]

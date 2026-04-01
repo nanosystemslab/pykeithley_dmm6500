@@ -6,8 +6,12 @@ import time
 from pykeithley_dmm6500.dmm6500 import DMM6500
 
 
-def parse_args() -> argparse.Namespace:
-    """Parse command-line arguments."""
+def create_parser() -> argparse.ArgumentParser:
+    """Create the argument parser.
+
+    Returns:
+        Configured ArgumentParser instance.
+    """
     parser = argparse.ArgumentParser(
         prog="pykeithley_dmm6500",
         description="Keithley DMM6500 command-line tool",
@@ -58,7 +62,12 @@ def parse_args() -> argparse.Namespace:
 
     sub.add_parser("reset", help="Reset instrument to factory defaults")
 
-    return parser.parse_args()
+    return parser
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    return create_parser().parse_args()
 
 
 def main() -> None:

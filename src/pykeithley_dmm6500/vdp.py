@@ -38,9 +38,9 @@ def sheet_resistance(
 
     Args:
         v_horizontal: Averaged voltage from horizontal configs (V).
-            Typically average of |V_cfg1| and |V_cfg2| (forward/reverse).
+            Typically average of V_cfg1 and V_cfg2 (forward/reverse).
         v_vertical: Averaged voltage from vertical configs (V).
-            Typically average of |V_cfg3| and |V_cfg4| (forward/reverse).
+            Typically average of V_cfg3 and V_cfg4 (forward/reverse).
         current: Source current in amps.
         thickness_cm: Film thickness in cm (optional, for resistivity).
 
@@ -74,9 +74,10 @@ def sheet_resistance_from_configs(
 ) -> VdpResult:
     """Calculate sheet resistance from all 4 Van der Pauw configurations.
 
-    Averages forward/reverse pairs to cancel offsets:
-        V_horizontal = (|V1| + |V2|) / 2
-        V_vertical   = (|V3| + |V4|) / 2
+    Averages forward/reverse pairs to cancel offsets::
+
+        V_horizontal = (abs(V1) + abs(V2)) / 2
+        V_vertical   = (abs(V3) + abs(V4)) / 2
 
     Args:
         v1: Voltage from configuration 1 (V).

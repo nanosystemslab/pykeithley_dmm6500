@@ -1,7 +1,6 @@
 """Keithley DMM6500 instrument driver over TCP/IP."""
 
 import socket
-import time
 from enum import Enum
 from typing import Optional
 
@@ -57,6 +56,7 @@ class DMM6500:
         port: int = DEFAULT_PORT,
         timeout: float = DEFAULT_TIMEOUT,
     ) -> None:
+        """Initialize DMM6500 connection parameters."""
         self.ip_address = ip_address
         self.port = port
         self.timeout = timeout
@@ -75,10 +75,12 @@ class DMM6500:
             self._socket = None
 
     def __enter__(self) -> "DMM6500":
+        """Connect and return self for use as context manager."""
         self.connect()
         return self
 
     def __exit__(self, *args: object) -> None:
+        """Disconnect on context manager exit."""
         self.disconnect()
 
     def _check_connection(self) -> socket.socket:
@@ -130,12 +132,14 @@ class DMM6500:
         self.send("reset()")
 
     def identify(self) -> str:
-        """Query the instrument identity string (*IDN?).
+        """Query the instrument identity string.
+
+        Sends the ``*IDN?`` SCPI command.
 
         Returns:
             Instrument identification string.
         """
-        return self.query("print(*IDN?)" if False else "*IDN?")
+        return self.query("*IDN?")
 
     # ── Measurement configuration ───────────────────────────────────
 
@@ -383,7 +387,7 @@ class DMM6500:
         """
         with open(script_path) as f:
             contents = f.read()
-        self.send(f"if {name} ~= nil then script.delete('{name}') end")
+        self.send(f"if {name} ~= nil then script.delete({name!r}) end")
         self.send(f"loadscript {name}\n{contents}\nendscript")
         self.send(f"{name}()")
 
@@ -393,4 +397,4 @@ class DMM6500:
         Args:
             name: Name of the script to delete.
         """
-        self.send(f"script.delete('{name}')")
+        self.send(f"script.delete({name!r})")

@@ -1,7 +1,6 @@
 """Command-line interface."""
 
 import argparse
-import sys
 import time
 
 from pykeithley_dmm6500.dmm6500 import DMM6500
@@ -18,7 +17,8 @@ def parse_args() -> argparse.Namespace:
         help="IP address of the DMM6500",
     )
     parser.add_argument(
-        "-p", "--port",
+        "-p",
+        "--port",
         type=int,
         default=DMM6500.DEFAULT_PORT,
         help="TCP port (default: %(default)s)",
@@ -30,13 +30,15 @@ def parse_args() -> argparse.Namespace:
 
     measure_parser = sub.add_parser("measure", help="Take a DC voltage measurement")
     measure_parser.add_argument(
-        "-n", "--count",
+        "-n",
+        "--count",
         type=int,
         default=1,
         help="Number of readings (default: 1)",
     )
     measure_parser.add_argument(
-        "-d", "--delay",
+        "-d",
+        "--delay",
         type=float,
         default=0.5,
         help="Delay between readings in seconds (default: 0.5)",

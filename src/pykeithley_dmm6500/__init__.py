@@ -8,6 +8,7 @@ from pykeithley_dmm6500.vdp import VdpResult
 from pykeithley_dmm6500.vdp import sheet_resistance
 from pykeithley_dmm6500.vdp import sheet_resistance_from_configs
 
+
 __all__ = [
     "DMM6500",
     "MeasureFunction",

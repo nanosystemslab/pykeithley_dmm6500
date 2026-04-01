@@ -51,7 +51,7 @@ class TestConnection:
 
     def test_context_manager(self, mock_socket: MagicMock) -> None:
         """Test context manager connects and disconnects."""
-        with DMM6500("192.168.1.1") as dmm:
+        with DMM6500("192.168.1.1"):
             mock_socket.connect.assert_called_once()
         mock_socket.close.assert_called_once()
 
@@ -65,16 +65,12 @@ class TestConnection:
 class TestSendReceive:
     """Test command send/receive."""
 
-    def test_send_appends_newline(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_send_appends_newline(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test that send appends newline."""
         dmm.send("reset()")
         mock_socket.sendall.assert_called_with(b"reset()\n")
 
-    def test_send_no_double_newline(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_send_no_double_newline(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test that send does not double newline."""
         dmm.send("reset()\n")
         mock_socket.sendall.assert_called_with(b"reset()\n")
@@ -106,27 +102,21 @@ class TestConfiguration:
         dmm.set_nplc(10)
         mock_socket.sendall.assert_called_with(b"dmm.measure.nplc = 10\n")
 
-    def test_set_input_impedance(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_set_input_impedance(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test setting input impedance."""
         dmm.set_input_impedance(Impedance.AUTO)
         mock_socket.sendall.assert_called_with(
             b"dmm.measure.inputimpedance = dmm.IMPEDANCE_AUTO\n"
         )
 
-    def test_set_autozero(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_set_autozero(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test setting autozero."""
         dmm.set_autozero(True)
         mock_socket.sendall.assert_called_with(
             b"dmm.measure.autozero.enable = dmm.ON\n"
         )
 
-    def test_set_filter(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_set_filter(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test setting measurement filter."""
         dmm.set_filter(enable=True, filter_type=FilterType.REPEAT_AVG, count=100)
         calls = [c.args[0] for c in mock_socket.sendall.call_args_list]
@@ -145,9 +135,7 @@ class TestMeasurement:
         assert isinstance(value, float)
         assert value == pytest.approx(1.00234)
 
-    def test_configure_dcv(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_configure_dcv(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test DC voltage configuration."""
         dmm.configure_dcv(range=1, nplc=10, impedance=Impedance.AUTO, autozero=True)
         calls = [c.args[0] for c in mock_socket.sendall.call_args_list]
@@ -167,23 +155,17 @@ class TestMeasurement:
 class TestTrigger:
     """Test trigger model control."""
 
-    def test_trigger_initiate(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_trigger_initiate(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test trigger initiation."""
         dmm.trigger_initiate()
         mock_socket.sendall.assert_called_with(b"trigger.model.initiate()\n")
 
-    def test_trigger_abort(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_trigger_abort(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test trigger abort."""
         dmm.trigger_abort()
         mock_socket.sendall.assert_called_with(b"trigger.model.abort()\n")
 
-    def test_wait_complete(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_wait_complete(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test wait for completion."""
         dmm.wait_complete()
         mock_socket.sendall.assert_called_with(b"waitcomplete()\n")
@@ -233,9 +215,7 @@ class TestVanDerPauw:
         assert b"dmm.measure.range = 0.1\n" in calls
         assert b"dmm.measure.autorange = dmm.ON\n" not in calls
 
-    def test_configure_dci_verify(
-        self, dmm: DMM6500, mock_socket: MagicMock
-    ) -> None:
+    def test_configure_dci_verify(self, dmm: DMM6500, mock_socket: MagicMock) -> None:
         """Test DCI verify configuration."""
         dmm.configure_dci_verify(expected_current=100e-6)
         calls = [c.args[0] for c in mock_socket.sendall.call_args_list]
@@ -269,9 +249,7 @@ class TestVanDerPauw:
         thickness = 100e-7  # 100nm in cm
         result = sheet_resistance(voltage, voltage, current, thickness_cm=thickness)
         assert result.resistivity is not None
-        assert result.resistivity == pytest.approx(
-            result.sheet_resistance * thickness
-        )
+        assert result.resistivity == pytest.approx(result.sheet_resistance * thickness)
 
     def test_sheet_resistance_from_configs(self) -> None:
         """Test sheet resistance from all 4 configurations."""

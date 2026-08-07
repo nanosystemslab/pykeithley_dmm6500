@@ -1,0 +1,23 @@
+{
+  "title": "PyKeithley_DMM6500: Python control of the Keithley DMM6500 multimeter",
+  "description": "<p>A Python library for controlling the Keithley DMM6500 6.5-digit digital multimeter over Ethernet using TSP commands on a raw TCP socket &mdash; no VISA or vendor drivers required. Covers DC/AC voltage and current, 2- and 4-wire resistance, temperature, filters, NPLC, and trigger control, with Van der Pauw sheet-resistance measurement utilities and a command-line interface.</p>",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "GPL-3.0",
+  "creators": [
+    {
+      "name": "Nakamura, Matthew",
+      "affiliation": "Nanosystems Lab, University of Hawaiʻi at Mānoa"
+    }
+  ],
+  "keywords": [
+    "keithley",
+    "dmm6500",
+    "multimeter",
+    "instrumentation",
+    "tsp",
+    "van-der-pauw",
+    "sheet-resistance",
+    "python"
+  ]
+}

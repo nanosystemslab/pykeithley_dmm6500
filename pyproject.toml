@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pykeithley_dmm6500"
-version = "0.0.0"
+version = "1.0.0"
 description = "PyKeithley_DMM6500"
 authors = ["Nanosystems Lab <nslab@hawaii.edu>"]
 license = "GPL-3.0"

@@ -4,6 +4,7 @@
 [![Status](https://img.shields.io/pypi/status/pykeithley_dmm6500.svg)][pypi status]
 [![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fnanosystemslab%2Fpykeithley_dmm6500%2Fmain%2Fpyproject.toml)][pypi status]
 [![License](https://img.shields.io/github/license/nanosystemslab/pykeithley_dmm6500)][license]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21842161.svg)][doi]
 
 [![Read the Docs](https://img.shields.io/readthedocs/pykeithley-dmm6500/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/nanosystemslab/pykeithley_dmm6500/workflows/Tests/badge.svg)][tests]
@@ -13,6 +14,7 @@
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
 [pypi status]: https://pypi.org/project/pykeithley_dmm6500/
+[doi]: https://doi.org/10.5281/zenodo.21842161
 [read the docs]: https://pykeithley-dmm6500.readthedocs.io/
 [tests]: https://github.com/nanosystemslab/pykeithley_dmm6500/actions?workflow=Tests
 [codecov]: https://app.codecov.io/gh/nanosystemslab/pykeithley_dmm6500
